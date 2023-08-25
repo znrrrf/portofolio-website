@@ -1,22 +1,46 @@
 import {
   Box,
   Button,
-  Collapse,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
   Heading,
-  Icon,
   Image,
-  Stack,
   Text,
+  useDisclosure,
+  useMediaQuery,
 } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import React, { useEffect, useState } from "react";
-import { projectData } from "../data/ProjectData";
-import galaxyStore from "../asset/galaxyStore.jpg";
+
+import galaxy from "../asset/galaxy.png";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { VscGithubInverted } from "react-icons/vsc";
 
 function Projects() {
+  const projects = [
+    {
+      id: 1,
+      name: "Galaxy Web Store",
+      description:
+        "A website for a multi-warehouse store that spread across of indonesia",
+      tools:
+        "React Js, Tailwind, Chakra, Redux, Node Js, Express Js, Sequelize, MySql",
+      pic: galaxy,
+      more: "This website is designed for multi-warehouse store that have more then one warehouse. It can show all of the product stock of all warehouse and will automatically choose the nearest warehouse of the user. If there is insufficient stock it will automatically does a mutation to get a product stock from another warehouse to suffice existing stock, but if the product stock of all warehouse is not enough, the admin can does a manual replenish existing stock or cancel the order. To get a location of the user we use free api OpenCage and to get a data of address and price of delivery we use free api RajaOngkir",
+      site: "https://jcwdol0904.purwadhikabootcamp.com/",
+    },
+  ];
+
+  const [isSmallerThan] = useMediaQuery("(max-width: 700px)");
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [show, setShow] = useState(false);
   const [timeOutData, setTimeOutData] = useState(null);
   useEffect(() => {
@@ -48,72 +72,111 @@ function Projects() {
       alignItems={"center"}
       flexDirection={"column"}
       justifyContent={"center"}
-      backgroundColor={"#222831"}
+      backgroundColor={"gray.100"}
+      color={"black"}
+      paddingBottom={"80px"}
     >
-      <Box>
-        <Heading color={"#00ADB5"} marginBottom={"50px"} data-aos="fade-down">
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        alignItems={"center"}
+        marginBottom={"100px"}
+      >
+        <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-down">
           Projects
         </Heading>
+        <Text fontWeight={"bold"}>My recent project</Text>
       </Box>
-      <Box data-aos="zoom-in">
-        <Stack
-          onMouseEnter={() => handleToggle()}
-          onMouseLeave={() => handleOut()}
-        >
-          <Box width={"300px"} borderRadius={"20px"} overflow={"hidden"}>
-            <Collapse in={show}>
-              <Box position={"absolute"}>
-                <Text
-                  fontWeight={"bold"}
-                  fontSize={"lg"}
-                  position={"absolute"}
-                  padding={"5px"}
-                  paddingLeft={"10px"}
-                >
-                  Multi-Warehouse
+      <Box>
+        {projects?.map((el, index) => {
+          return (
+            <Card
+              width={"250px"}
+              display={"flex"}
+              alignItems={"center"}
+              key={index}
+            >
+              <CardHeader>
+                <Text fontWeight={"bold"}>{el.name}</Text>
+              </CardHeader>
+              <Image src={el.pic} boxSize={"200px"} boxShadow={"lg"} />
+
+              <CardBody>
+                <Text fontSize={"11px"} textAlign={"justify"}>
+                  {el.description}
                 </Text>
-
-                <Box position={"absolute"} display={"flex"}>
-                  <Box marginTop={"110px"} marginLeft={"10px"}>
-                    <Link to="https://jcwdol0904.purwadhikabootcamp.com/">
-                      <Button
-                        height={"30px"}
-                        variant={"unstyled"}
-                        backgroundColor={"#222831"}
-                        color={"#EEEEEE"}
-                      >
-                        <Text paddingX={"20px"}>visit</Text>
-                      </Button>
-                    </Link>
-                  </Box>
-
-                  <Box marginTop={"110px"} marginLeft={"10px"}>
-                    <Link to={"https://github.com/Znrrrf/JCWDOL0904"}>
-                      <Icon
-                        as={VscGithubInverted}
-                        boxSize={"30px"}
-                        _hover={{ cursor: "pointer" }}
-                      />
-                    </Link>
-                  </Box>
+                <Box fontSize={"11px"} marginTop={"20px"}>
+                  <Text fontWeight={"bold"}>Tools</Text>
+                  <Text>{el.tools}</Text>
                 </Box>
+              </CardBody>
+              <CardFooter>
+                <Button
+                  variant={"link"}
+                  rightIcon={<ArrowForwardIcon />}
+                  onClick={onOpen}
+                >
+                  view more
+                </Button>
+                <Drawer placement="bottom" onClose={onClose} isOpen={isOpen}>
+                  <DrawerOverlay />
+                  <DrawerContent>
+                    <DrawerHeader>
+                      <Box>
+                        <Text>{el.name}</Text>
+                      </Box>
+                    </DrawerHeader>
+                    <DrawerBody>
+                      <Box>
+                        <Box
+                          display={"flex"}
+                          flexDirection={isSmallerThan ? "column" : "row"}
+                          justifyContent={"center"}
+                          gap={5}
+                        >
+                          <Image src={el.pic} />
+                          <Box gap={5}>
+                            <Box>
+                              <Text>{el.more}</Text>
+                            </Box>
 
-                <Text marginTop={"20px"} position={"absolute"} padding={"10px"}>
-                  Multi-Warehouse E-commerce is a website that implements more
-                  than one warehouse for storing goods.
-                </Text>
-                <Box
-                  background={"#EEEEEE"}
-                  width={"300px"}
-                  height={"140px"}
-                  borderRadius={"20px"}
-                ></Box>
-              </Box>
-            </Collapse>
-
-            <Image src={galaxyStore} />
-          </Box>
-        </Stack>
+                            <Box>
+                              {" "}
+                              <Link
+                                to={
+                                  "https://jcwdol0904.purwadhikabootcamp.com/"
+                                }
+                                target="_blank"
+                              >
+                                <Button
+                                  marginTop={"10px"}
+                                  variant={"none"}
+                                  backgroundColor={"black"}
+                                  color={"white"}
+                                  borderRadius={"none"}
+                                  border={"1px"}
+                                  rightIcon={<ArrowForwardIcon />}
+                                  fontSize={"13px"}
+                                  height={"30px"}
+                                  _hover={{
+                                    color: "black",
+                                    backgroundColor: "white",
+                                  }}
+                                >
+                                  Visit
+                                </Button>
+                              </Link>
+                            </Box>
+                          </Box>
+                        </Box>
+                      </Box>
+                    </DrawerBody>
+                  </DrawerContent>
+                </Drawer>
+              </CardFooter>
+            </Card>
+          );
+        })}
       </Box>
     </Box>
   );

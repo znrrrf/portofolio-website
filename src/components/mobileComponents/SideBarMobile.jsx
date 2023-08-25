@@ -7,6 +7,7 @@ import {
   Box,
   IconButton,
   Icon,
+  Button,
 } from "@chakra-ui/react";
 import {
   MdTableRows,
@@ -18,6 +19,7 @@ import {
   MdCall,
 } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-scroll";
 
 function SideBarMobile() {
   const navigation = useNavigate();
@@ -25,28 +27,18 @@ function SideBarMobile() {
     {
       name: "Home",
       icon: MdHome,
-      navi: "/",
+      navi: "home",
     },
-    { name: "About Me", icon: MdAccountBox, navi: "/about-me" },
-    {
-      name: "Skill",
-      icon: MdCode,
-      navi: "/skill",
-    },
-    {
-      name: "Study",
-      icon: MdAutoStories,
-      navi: "/study",
-    },
+    { name: "About Me", icon: MdAccountBox, navi: "about" },
     {
       name: "Projects",
       icon: MdFolder,
-      navi: "/projects",
+      navi: "projects",
     },
     {
       name: "Contact",
       icon: MdCall,
-      navi: "/contact",
+      navi: "contact",
     },
   ];
 
@@ -57,21 +49,22 @@ function SideBarMobile() {
   return (
     <Menu>
       <MenuButton
-        colorScheme="whiteAlpha"
+        color={"gray.700"}
         as={IconButton}
         aria-label="Options"
         icon={<MdTableRows />}
         variant="outline"
+        backgroundColor={"white"}
+        boxShadow={"md"}
       />
-      <MenuList>
-        {navigationButton?.map((el) => {
+      <MenuList display={"flex"} flexDirection={"column"}>
+        {navigationButton?.map((el, index) => {
           return (
-            <MenuItem
-              icon={<Icon as={el.icon} />}
-              onClick={() => handleNavigation(el)}
-            >
-              {el.name}
-            </MenuItem>
+            <Link to={el.navi} smooth={true} duration={500} key={index}>
+              <Button variant={"none"} leftIcon={<Icon as={el.icon} />}>
+                {el.name}
+              </Button>
+            </Link>
           );
         })}
       </MenuList>

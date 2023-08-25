@@ -18,9 +18,10 @@ import {
   MdFolder,
   MdAutoStories,
   MdAccountBox,
+  MdPhone,
 } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
 function SideBar() {
@@ -29,23 +30,18 @@ function SideBar() {
     {
       name: "Home",
       icon: MdHome,
-      navi: "/",
+      navi: "home",
     },
-    { name: "About Me", icon: MdAccountBox, navi: "/about-me" },
-    {
-      name: "Skill",
-      icon: MdCode,
-      navi: "/skill",
-    },
-    {
-      name: "Study",
-      icon: MdAutoStories,
-      navi: "/study",
-    },
+    { name: "About Me", icon: MdAccountBox, navi: "about" },
     {
       name: "Projects",
       icon: MdFolder,
-      navi: "/projects",
+      navi: "projects",
+    },
+    {
+      name: "Contact",
+      icon: MdPhone,
+      navi: "contact",
     },
   ];
   const [show, setShow] = useState("");
@@ -93,7 +89,7 @@ function SideBar() {
       height={"full"}
       display={"flex"}
       justifyContent={"center"}
-      position={"absolute"}
+      position={"fixed"}
       flexDirection={"column"}
       gap={5}
     >
@@ -110,36 +106,38 @@ function SideBar() {
               damping: 20,
             }}
           >
-            <Button
-              paddingY={"25px"}
-              borderRadius={"30px"}
-              key={el.name}
-              width={"65px"}
-              name={el.name}
-              justifyContent={"start"}
-              variant={"ghost"}
-              backgroundColor={
-                show === el.name || active === el.name ? "#393E46" : null
-              }
-              color={
-                show === el.name || active === el.name ? "#EEEEEE" : "#00ADB5"
-              }
-              onClick={() => buttonActive(el.name, el.navi)}
-              _hover={{
-                backgroundColor: "#393E46",
-                color: "#EEEEEE",
-                width: "150px",
-              }}
-              onMouseEnter={() => handleToggle(el.name)}
-              onMouseLeave={() => handleOut()}
-              leftIcon={<Icon as={el.icon} boxSize={7} marginLeft={"3px"} />}
-              fontSize={"lg"}
-              display={{ base: "none", sm: "flex" }}
-            >
-              <Collapse key={el.name} in={show === el.name ? true : false}>
-                <Text fontSize={"sm"}>{el.name}</Text>
-              </Collapse>
-            </Button>
+            <Link to={el.navi} smooth={true} duration={500}>
+              <Button
+                boxShadow={"lg"}
+                paddingY={"25px"}
+                borderRadius={"30px"}
+                key={el.name}
+                width={"65px"}
+                name={el.name}
+                justifyContent={"start"}
+                variant={"ghost"}
+                backgroundColor={"white"}
+                color={"gray.800"}
+                // onClick={() => buttonActive(el.name, el.navi)}
+
+                _hover={{
+                  width: "150px",
+                }}
+                onMouseEnter={() => handleToggle(el.name)}
+                onMouseLeave={() => handleOut()}
+                leftIcon={<Icon as={el.icon} boxSize={7} marginLeft={"3px"} />}
+                fontSize={"lg"}
+                display={{ base: "none", sm: "flex" }}
+              >
+                <Collapse
+                  key={el.name}
+                  in={show === el.name ? true : false}
+                  hidden={show === el.name ? false : true}
+                >
+                  <Text fontSize={"sm"}>{el.name}</Text>
+                </Collapse>
+              </Button>
+            </Link>
           </motion.div>
         );
       })}

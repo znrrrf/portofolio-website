@@ -1,6 +1,15 @@
-import { Box, Center, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Image,
+  Stack,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import profileImage from "../../asset/profileNoBackground.png";
+import profileImage from "../../asset/4002785.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 function HomePc() {
@@ -8,59 +17,65 @@ function HomePc() {
     AOS.init();
     localStorage.setItem("active", JSON.stringify("Home"));
   }, []);
+
   return (
     <Box
       minHeight={"100vh"}
       display={"flex"}
-      alignItems={"center"}
       justifyContent={"center"}
-      backgroundColor={"#222831"}
+      backgroundColor={"black"}
     >
       <Stack
-        direction={"row"}
         display={"Flex"}
         justifyContent={"center"}
         alignItems={"center"}
         height={"500px"}
       >
-        <Box
-          marginLeft={"800px"}
-          overflowY={"hidden"}
-          style={{ height: "100vh" }}
-          display={"flex"}
-          alignItems={"end"}
-        >
-          <Box maxHeight={"650px"}>
-            <Image src={profileImage} marginTop={"100px"} data-aos="fade-up" />
+        <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
+          <Box display={"flex"} gap={2} fontSize={"3xl"} fontWeight={"bold"}>
+            <Text>Hallo, I'm</Text>
+            <Text>Zainur Rouf.</Text>
           </Box>
-        </Box>
-
-        <Box
-          color={"#EEEEEE"}
-          data-aos="fade-left"
-          position={"absolute"}
-          marginRight={"110px"}
-        >
-          <Box fontSize={"2xl"} display={"flex"} flexDirection={"row"}>
-            <Text color={"#00ADB5"}>Hello </Text>
-            <Text>, my name is</Text>
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"center"}
+            fontSize={"5xl"}
+            fontWeight={"bold"}
+          >
+            <Text fontSize={"50px"}>Full-Stack Web Developer</Text>
           </Box>
-          <Box>
-            <Text fontWeight={"bold"} fontSize={"7xl"} color={"#00ADB5"}>
-              Zainur Rouf
-            </Text>
-          </Box>
-          <Box fontSize={"2xl"}>
-            <Text fontWeight={"bold"}>
-              I'am a junior fullstack web developer.
-            </Text>
-          </Box>
-          <Box maxW={"810px"} marginTop={"10px"}>
-            <Text>
-              I recently graduated from Purwadhika School of Technology, and
-              learned how to build simple e-commerce websites that work on user
-              interfaces and databases as a team.
-            </Text>
+          <Box display={"flex"} gap={5} mt={"10px"}>
+            <Box>
+              <Button
+                variant={"solid"}
+                backgroundColor={"#112D4E"}
+                border={"2px"}
+                borderColor={"white"}
+                borderRadius={"none"}
+                color={"white"}
+                _hover={{
+                  color: "black",
+                  backgroundColor: "white",
+                  border: "2px",
+                  borderColor: "#112D4E",
+                }}
+              >
+                My Contact
+              </Button>
+            </Box>
+            <Box>
+              <Button
+                variant={"outline"}
+                border={"2px"}
+                borderColor={"#112D4E"}
+                color={"#112D4E"}
+                _hover={{ color: "white", backgroundColor: "#112D4E" }}
+                borderRadius={"none"}
+              >
+                Get CV
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Stack>

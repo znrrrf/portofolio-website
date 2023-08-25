@@ -3,83 +3,140 @@ import {
   Button,
   Heading,
   Icon,
+  Input,
   Stack,
   Text,
+  Textarea,
   useMediaQuery,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { MdEmail, MdWhatsapp } from "react-icons/md";
-import { Link } from "react-router-dom";
-import ContacMobile from "./MobilePages/ContacMobile";
-import ContactPc from "./PCPages/ContactPc";
+import Swal from "sweetalert2";
 
 function Contact() {
-  const [isSmallerThan] = useMediaQuery("(max-width: 767px)");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_m1lguvx",
+        "template_q7wb5cb",
+        form.current,
+        "8n6-t8wxB6aaW66R1"
+      )
+      .then(
+        (result) => {
+          Toast.fire({
+            icon: "success",
+            title: "Send in successfully",
+          });
+          setIsLoading(false);
+          e.target.reset();
+        },
+        (error) => {
+          Toast.fire({
+            icon: "error",
+            title: "Something went wrong",
+          });
+          setIsLoading(false);
+          e.target.reset();
+        }
+      );
+  };
+  const [isSmallerThan] = useMediaQuery("(max-width: 700px)");
+
   return (
-    <>{isSmallerThan ? <ContacMobile /> : <ContactPc />}</>
-    // <Box
-    //   minHeight={"100vh"}
-    //   display={"flex"}
-    //   alignItems={"center"}
-    //   flexDirection={"column"}
-    //   justifyContent={"center"}
-    //   backgroundColor={"#222831"}
-    // >
-    //   <Box>
-    //     <Heading color={"#00ADB5"} data-aos="fade-down">
-    //       Get in touch
-    //     </Heading>
-    //   </Box>
-    //   <Box>
-    //     <Text marginBottom={"50px"} color={"#EEEEEE"} data-aos="zoom-in">
-    //       Contact me
-    //     </Text>
-    //   </Box>
-    //   <Stack spacing={"30px"} direction={"row"}>
-    //     <Box
-    //       cursor={"pointer"}
-    //       width={"400px"}
-    //       height={"200px"}
-    //       display={"flex"}
-    //       flexDirection={"column"}
-    //       alignItems={"center"}
-    //       justifyContent={"center"}
-    //       backgroundColor={"#393E46"}
-    //       _hover={{ backgroundColor: "#EEEEEE", color: "#393E46" }}
-    //       borderRadius={"20px"}
-    //       data-aos="zoom-in-right"
-    //       color={"#EEEEEE"}
-    //     >
-    //       <Icon as={MdEmail} boxSize={"50px"} />
-    //       <Text fontWeight={"bold"}>Email</Text>
-    //       <Text fontWeight={"bold"} fontSize={"25px"}>
-    //         zainurrouf4@gmail.com
-    //       </Text>
-    //     </Box>
-    //     <Link to={"https://wa.me/6281546413467"}>
-    //       <Box
-    //         cursor={"pointer"}
-    //         width={"400px"}
-    //         height={"200px"}
-    //         display={"flex"}
-    //         flexDirection={"column"}
-    //         alignItems={"center"}
-    //         justifyContent={"center"}
-    //         backgroundColor={"#393E46"}
-    //         color={"#EEEEEE"}
-    //         borderRadius={"20px"}
-    //         data-aos="zoom-in-left"
-    //         _hover={{ backgroundColor: "#EEEEEE", color: "#393E46" }}
-    //       >
-    //         <Icon as={MdWhatsapp} boxSize={"50px"} />
-    //         <Text fontWeight={"bold"}>Whatapps</Text>
-    //         <Text fontWeight={"bold"} fontSize={"25px"}>
-    //           +62-815-4641-3467
-    //         </Text>
-    //       </Box>
-    //     </Link>
-    //   </Stack>
-    // </Box>
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      minHeight={"400px"}
+      width={"100wh"}
+      backgroundColor={"white"}
+      color={"black"}
+      paddingBottom={"100px"}
+    >
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        alignItems={"center"}
+        marginBottom={"100px"}
+      >
+        <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-up">
+          Contact
+        </Heading>
+        <Text fontWeight={"bold"}>Let's get in touch</Text>
+      </Box>
+      <Stack
+        direction={isSmallerThan ? "column" : "row"}
+        gap={10}
+        backgroundColor={"gray.700"}
+        padding={"30px"}
+        borderRadius={"5px"}
+        marginX={"20px"}
+      >
+        <Box display={"flex"} flexDirection={"column"} gap={5} color={"white"}>
+          <Box display={"flex"} gap={5}>
+            <Icon as={MdEmail} boxSize={"30px"} />
+            <Text>zainurrouf4@gmail.com</Text>
+          </Box>
+          <Box display={"flex"} gap={5}>
+            <Icon as={MdWhatsapp} boxSize={"30px"} />
+            <Text>+62-815-4641-3467</Text>
+          </Box>
+        </Box>
+        <Box
+          padding={"20px"}
+          maxW={"400px"}
+          backgroundColor={"white"}
+          borderRadius={"5px"}
+        >
+          <form ref={form} onSubmit={sendEmail}>
+            <label>Name</label>
+            <Input type="text" name="user_name" />
+            <label>Email</label>
+            <Input type="email" name="user_email" />
+            <label>Message</label>
+            <Textarea name="message" />
+            <Button
+              variant={"none"}
+              width={"full"}
+              isLoading={isLoading ? true : false}
+              border={"1px"}
+              borderColor={"gray.700"}
+              borderRadius={"none"}
+              cursor={"pointer"}
+              _hover={{
+                color: "white",
+                backgroundColor: "gray.700",
+              }}
+              type="submit"
+            >
+              Send
+            </Button>
+          </form>
+        </Box>
+      </Stack>
+    </Box>
   );
 }
 

@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar";
 import { useMediaQuery } from "@chakra-ui/react";
 
 function Paging(props) {
-  const [isSmallerThan] = useMediaQuery("(max-width: 767px)");
+  const [isSmallerThan] = useMediaQuery("(max-width: 910px)");
   const [main, setMain] = useState(false);
   const [contact, setContact] = useState(false);
 

@@ -1,4 +1,11 @@
-import { Box, Button, Icon, Stack, useMediaQuery } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Icon,
+  Stack,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { VscGithubInverted } from "react-icons/vsc";
@@ -6,7 +13,7 @@ import SideBarMobile from "./mobileComponents/SideBarMobile";
 import { SiLinkedin } from "react-icons/si";
 
 function NavBar() {
-  const [isSmallerThan] = useMediaQuery("(max-width: 767px)");
+  const [isSmallerThan] = useMediaQuery("(max-width: 910px)");
   const [active, setActive] = useState("Home");
   const navigation = useNavigate();
   const mainPageButton = () => {
@@ -21,39 +28,16 @@ function NavBar() {
 
   return (
     <Stack
-      position={"absolute"}
+      position={"fixed"}
       direction={"row"}
       justifyContent={"space-between"}
       width={"full"}
-      paddingY={"20px"}
+      paddingY={"10px"}
       paddingX={"20px"}
+      zIndex={50}
     >
-      <Box>
-        {isSmallerThan ? (
-          <SideBarMobile />
-        ) : (
-          <>
-            <Button
-              disabled={active === "Home" ? true : false}
-              color={"#00ADB5"}
-              variant={"ghost"}
-              _hover={{ color: "#EEEEEE" }}
-              marginX={"10px"}
-              onClick={() => mainPageButton()}
-            >
-              Main
-            </Button>
-            <Button
-              color={"#00ADB5"}
-              variant={"ghost"}
-              _hover={{ color: "#EEEEEE" }}
-              marginX={"10px"}
-              onClick={() => contactPageButton()}
-            >
-              Contact
-            </Button>
-          </>
-        )}
+      <Box paddingX={isSmallerThan ? null : "30px"}>
+        {isSmallerThan ? <SideBarMobile /> : null}
       </Box>
       <Box display={"flex"} alignItems={"center"} gap={5}>
         <Link to={"https://github.com/Znrrrf?tab=repositories"}>

@@ -27,7 +27,7 @@ function AboutMePc() {
       flexDirection={"column"}
       alignItems={"center"}
       justifyContent={"center"}
-      backgroundColor={"#222831"}
+      backgroundColor={"white"}
     >
       <Box>
         <Heading
@@ -40,10 +40,9 @@ function AboutMePc() {
         </Heading>
       </Box>
 
-      <>
+      {/* <>
         <Stack direction={"row"} gap={10}>
           <Box
-            data-aos="fade-right"
             width={"300px"}
             height={"300px"}
             overflowY={"hidden"}
@@ -107,7 +106,7 @@ function AboutMePc() {
             </motion.div>
           </Box>
         </Stack>
-      </>
+      </> */}
     </Box>
   );
 }
