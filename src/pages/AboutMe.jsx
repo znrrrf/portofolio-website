@@ -50,10 +50,12 @@ function AboutMe() {
         alignItems={"center"}
         marginBottom={"100px"}
       >
-        <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-down">
+        <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-up">
           About
         </Heading>
-        <Text fontWeight={"bold"}>Get to know more about me</Text>
+        <Text fontWeight={"bold"} data-aos="fade-up">
+          Get to know more about me
+        </Text>
       </Box>
       <Box
         maxWidth={"900px"}

@@ -84,7 +84,9 @@ function Contact() {
         <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-up">
           Contact
         </Heading>
-        <Text fontWeight={"bold"}>Let's get in touch</Text>
+        <Text fontWeight={"bold"} data-aos="fade-up">
+          Let's get in touch
+        </Text>
       </Box>
       <Stack
         direction={isSmallerThan ? "column" : "row"}

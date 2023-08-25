@@ -74,7 +74,7 @@ function Projects() {
       justifyContent={"center"}
       backgroundColor={"gray.100"}
       color={"black"}
-      paddingBottom={"80px"}
+      paddingBottom={"100px"}
     >
       <Box
         display={"flex"}
@@ -82,10 +82,12 @@ function Projects() {
         alignItems={"center"}
         marginBottom={"100px"}
       >
-        <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-down">
+        <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-up">
           Projects
         </Heading>
-        <Text fontWeight={"bold"}>My recent project</Text>
+        <Text fontWeight={"bold"} data-aos="fade-up">
+          My recent project
+        </Text>
       </Box>
       <Box>
         {projects?.map((el, index) => {
@@ -105,10 +107,6 @@ function Projects() {
                 <Text fontSize={"11px"} textAlign={"justify"}>
                   {el.description}
                 </Text>
-                <Box fontSize={"11px"} marginTop={"20px"}>
-                  <Text fontWeight={"bold"}>Tools</Text>
-                  <Text>{el.tools}</Text>
-                </Box>
               </CardBody>
               <CardFooter>
                 <Button
@@ -137,11 +135,19 @@ function Projects() {
                           <Image src={el.pic} />
                           <Box gap={5}>
                             <Box>
-                              <Text>{el.more}</Text>
+                              <Text textAlign={"justify"}>{el.more}</Text>
+                              <Box
+                                display={"flex"}
+                                fontSize={"15px"}
+                                marginY={"10px"}
+                                gap={2}
+                              >
+                                <Text fontWeight={"bold"}>Tools: </Text>
+                                <Text>{el.tools}</Text>
+                              </Box>
                             </Box>
 
                             <Box>
-                              {" "}
                               <Link
                                 to={
                                   "https://jcwdol0904.purwadhikabootcamp.com/"

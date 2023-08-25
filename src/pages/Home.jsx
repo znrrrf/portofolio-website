@@ -25,7 +25,13 @@ function Home() {
       backgroundColor={"gray.700"}
       color={"white"}
     >
-      <Box display={"flex"} gap={2} fontSize={"2xl"} fontWeight={"bold"}>
+      <Box
+        display={"flex"}
+        gap={2}
+        fontSize={"2xl"}
+        fontWeight={"bold"}
+        data-aos="fade-down"
+      >
         <Text>Hi, I'm</Text>
         <Text color={"white"}>Zainur.</Text>
       </Box>
@@ -35,6 +41,7 @@ function Home() {
         alignItems={"center"}
         fontSize={"3xl"}
         fontWeight={"bold"}
+        data-aos="fade-down"
       >
         <Text fontSize={isSmallerThan2 ? "20px" : "30px"}>
           Full-Stack Web Developer

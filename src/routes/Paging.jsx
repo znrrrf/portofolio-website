@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SideBar from "../components/SideBar";
 import NavBar from "../components/NavBar";
 import { useMediaQuery } from "@chakra-ui/react";
+import Footer from "../components/Footer";
 
 function Paging(props) {
   const [isSmallerThan] = useMediaQuery("(max-width: 910px)");
@@ -18,6 +19,7 @@ function Paging(props) {
       {isSmallerThan ? null : <SideBar />}
       <NavBar />
       {main ? props.children : null}
+      <Footer />
     </>
   ) : (
     <>
