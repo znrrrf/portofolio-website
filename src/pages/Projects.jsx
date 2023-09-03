@@ -11,6 +11,7 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Heading,
+  Icon,
   Image,
   Text,
   useDisclosure,
@@ -19,10 +20,14 @@ import {
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import React, { useEffect, useState } from "react";
 
+import { VscGithubInverted } from "react-icons/vsc";
 import galaxy from "../asset/galaxy.png";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import { render } from "react-dom";
+import { motion } from "framer-motion";
 
 function Projects() {
   const projects = [
@@ -73,7 +78,7 @@ function Projects() {
       flexDirection={"column"}
       justifyContent={"center"}
       backgroundColor={"gray.100"}
-      color={"black"}
+      color={"#222831"}
       paddingBottom={"100px"}
     >
       <Box
@@ -147,31 +152,63 @@ function Projects() {
                               </Box>
                             </Box>
 
-                            <Box>
-                              <Link
-                                to={
-                                  "https://jcwdol0904.purwadhikabootcamp.com/"
-                                }
-                                target="_blank"
+                            <Box
+                              display={"flex"}
+                              alignItems={"center"}
+                              height={"80px"}
+                              gap={5}
+                            >
+                              <motion.div
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.8 }}
                               >
-                                <Button
-                                  marginTop={"10px"}
-                                  variant={"none"}
-                                  backgroundColor={"black"}
-                                  color={"white"}
-                                  borderRadius={"none"}
-                                  border={"1px"}
-                                  rightIcon={<ArrowForwardIcon />}
-                                  fontSize={"13px"}
+                                <Box
                                   height={"30px"}
-                                  _hover={{
-                                    color: "black",
-                                    backgroundColor: "white",
-                                  }}
+                                  display={"flex"}
+                                  padding={"2px"}
                                 >
-                                  Visit
-                                </Button>
-                              </Link>
+                                  <Link
+                                    to={"https://github.com/znrrrf/JCWDOL0904"}
+                                    target="_blank"
+                                  >
+                                    <Icon
+                                      as={VscGithubInverted}
+                                      boxSize={"25px"}
+                                    />
+                                  </Link>
+                                </Box>
+                              </motion.div>
+
+                              <motion.div
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.8 }}
+                              >
+                                <Box height={"fit-content"}>
+                                  <Link
+                                    to={
+                                      "https://jcwdol0904.purwadhikabootcamp.com/"
+                                    }
+                                    target="_blank"
+                                  >
+                                    <Button
+                                      variant={"none"}
+                                      backgroundColor={"black"}
+                                      color={"white"}
+                                      borderRadius={"none"}
+                                      border={"1px"}
+                                      rightIcon={<ArrowForwardIcon />}
+                                      fontSize={"13px"}
+                                      height={"30px"}
+                                      _hover={{
+                                        color: "black",
+                                        backgroundColor: "white",
+                                      }}
+                                    >
+                                      Visit
+                                    </Button>
+                                  </Link>
+                                </Box>
+                              </motion.div>
                             </Box>
                           </Box>
                         </Box>

@@ -72,7 +72,7 @@ function Contact() {
       minHeight={"400px"}
       width={"100wh"}
       backgroundColor={"white"}
-      color={"black"}
+      color={"#222831"}
       paddingBottom={"100px"}
     >
       <Box
