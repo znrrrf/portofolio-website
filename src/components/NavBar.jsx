@@ -40,7 +40,7 @@ function NavBar() {
         {isSmallerThan ? <SideBarMobile /> : null}
       </Box>
       <Box display={"flex"} alignItems={"center"} gap={5}>
-        <Link to={"https://github.com/Znrrrf?tab=repositories"}>
+        <Link to={"https://github.com/Znrrrf?tab=repositories"} target="_blank">
           <Icon
             as={VscGithubInverted}
             color={"red"}
@@ -48,7 +48,10 @@ function NavBar() {
             _hover={{ cursor: "pointer", color: "#EEEEEE" }}
           />
         </Link>
-        <Link to={"https://www.linkedin.com/in/zainur-rouf-2822a4263/"}>
+        <Link
+          to={"https://www.linkedin.com/in/zainur-rouf-2822a4263/"}
+          target="_blank"
+        >
           <Icon
             as={SiLinkedin}
             color={"red"}
