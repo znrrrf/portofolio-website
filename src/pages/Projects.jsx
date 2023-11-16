@@ -17,7 +17,7 @@ import {
   useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import React, { useEffect, useState } from "react";
 
 import { VscGithubInverted } from "react-icons/vsc";
@@ -154,7 +154,6 @@ function Projects() {
                 <Button
                   variant={"link"}
                   rightIcon={<ArrowForwardIcon />}
-                  // onClick={onOpen}
                   onClick={() => openDrawer(el)}
                 >
                   view more
@@ -214,6 +213,28 @@ function Projects() {
                             <Icon as={VscGithubInverted} boxSize={"25px"} />
                           </Link>
                         </Box>
+                      </motion.div>
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                      >
+                        <Button
+                          variant={"none"}
+                          backgroundColor={"black"}
+                          color={"white"}
+                          borderRadius={"none"}
+                          border={"1px"}
+                          rightIcon={<ArrowBackIcon />}
+                          fontSize={"13px"}
+                          height={"30px"}
+                          _hover={{
+                            color: "black",
+                            backgroundColor: "white",
+                          }}
+                          onClick={onClose}
+                        >
+                          Back
+                        </Button>
                       </motion.div>
 
                       <motion.div
