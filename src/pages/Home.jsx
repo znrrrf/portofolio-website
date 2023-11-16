@@ -79,7 +79,7 @@ function Home() {
           >
             <Link
               to={
-                "https://drive.google.com/file/d/1Wm6U9KD4fC0x-dDJPzlBnFthRv1A1NPC/view?usp=sharing"
+                "https://drive.google.com/file/d/11s7IWdzowDEnvQQ2nVaE9-5VIJsv-ftB/view?usp=sharing"
               }
               target="_blank"
             >

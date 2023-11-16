@@ -5,8 +5,10 @@ import {
   useMediaQuery,
   Grid,
   GridItem,
+  Image,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
+import { ICONS } from "../contants";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -19,17 +21,19 @@ function AboutMe() {
   const [isSmallerThan2] = useMediaQuery("(max-width: 321px)");
 
   const skills = [
-    { skill: "HTML" },
-    { skill: "CSS" },
-    { skill: "React Js" },
-    { skill: "Redux" },
-    { skill: "Javascript" },
-    { skill: "Express Js" },
-    { skill: "Node Js" },
-    { skill: "Tailwind" },
-    { skill: "Chakra-Ui" },
-    { skill: "MySql" },
-    { skill: "Sequelize" },
+    { skill: "HTML", icon: ICONS.htmlI },
+    { skill: "CSS", icon: ICONS.cssI },
+    { skill: "React Js", icon: ICONS.reactI },
+    { skill: "Redux-toolkit", icon: ICONS.reduxI },
+    { skill: "Javascript", icon: ICONS.javascriptI },
+    { skill: "Express Js", icon: ICONS.expressI },
+    { skill: "Node Js", icon: ICONS.nodeI },
+    { skill: "Tailwind", icon: ICONS.tailwindI },
+    { skill: "Chakra-Ui", icon: ICONS.chakraI },
+    { skill: "MySql", icon: ICONS.mysqlI },
+    { skill: "Sequelize", icon: ICONS.sequelizeI },
+    { skill: "TypeScript", icon: ICONS.typescriptI },
+    { skill: "React-Native", icon: ICONS.nativeI },
   ];
 
   return (
@@ -76,7 +80,7 @@ function AboutMe() {
           </Box>
 
           <Grid
-            templateColumns={["repeat(2, 100px)", "repeat(3, 100px)"]}
+            templateColumns={["repeat(1, 160px)", "repeat(3, 160px)"]}
             gap={isSmallerThan2 ? 10 : 3}
             width={"full"}
           >
@@ -85,12 +89,23 @@ function AboutMe() {
                 <GridItem key={index}>
                   <Box
                     fontWeight={"bold"}
-                    backgroundColor={"gray.200"}
+                    border={"1px"}
                     display={"flex"}
-                    justifyContent={"center"}
                     padding={"10px"}
-                    width={"80px"}
+                    width={"150px"}
+                    height={"50px"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                    gap={"2"}
+                    _hover={{
+                      backgroundColor: "black",
+                      color: "white",
+                      cursor: "pointer",
+                    }}
                   >
+                    <Box justifyContent={"center"} alignItems={"center"}>
+                      <Image src={el.icon} width={"30px"} />
+                    </Box>
                     <Text fontSize={"11px"}>{el.skill}</Text>
                   </Box>
                 </GridItem>

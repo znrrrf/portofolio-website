@@ -42,4 +42,12 @@ export const frontEndSkill = [
     skil: "Router-Dom",
     level: "Basic",
   },
+  {
+    skil: "TypeScript",
+    level: "Basic",
+  },
+  {
+    skil: "React-Native",
+    level: "Basic",
+  },
 ];
