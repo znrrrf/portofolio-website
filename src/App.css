@@ -42,3 +42,19 @@
   background: white;
   border-radius: 30px;
 }
+
+/* .panel {
+  position: static;
+  z-index: 40;
+}
+
+.panel.fade-in {
+  position: absolute;
+  top: 0;
+  z-index: 20;
+} */
+
+.text-lg {
+  font-size: larger;
+  font-weight: bold;
+}

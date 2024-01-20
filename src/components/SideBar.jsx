@@ -19,6 +19,7 @@ import {
   MdAutoStories,
   MdAccountBox,
   MdPhone,
+  MdArrowUpward,
 } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
@@ -27,11 +28,11 @@ import { motion } from "framer-motion";
 function SideBar() {
   const [isSmallerThan] = useMediaQuery("(max-width: 767px)");
   const navigationButton = [
-    {
-      name: "Home",
-      icon: MdHome,
-      navi: "home",
-    },
+    // {
+    //   name: "Home",
+    //   icon: MdHome,
+    //   navi: "home",
+    // },
     { name: "About Me", icon: MdAccountBox, navi: "about" },
     {
       name: "Projects",
@@ -92,7 +93,59 @@ function SideBar() {
       position={"fixed"}
       flexDirection={"column"}
       gap={5}
+      zIndex={50}
     >
+      <motion.div
+        whileHover={{ scale: [null, 1.2, 1.1] }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ scale: 0 }}
+        animate={{ rotate: 360, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
+      >
+        <Link
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
+          <Button
+            boxShadow={"lg"}
+            paddingY={"25px"}
+            borderRadius={"30px"}
+            key={"Home"}
+            width={"65px"}
+            name={"Home"}
+            justifyContent={"start"}
+            variant={"ghost"}
+            backgroundColor={"white"}
+            color={"gray.800"}
+            // onClick={() => buttonActive(el.name, el.navi)}
+
+            _hover={{
+              width: "150px",
+            }}
+            onMouseEnter={() => handleToggle("Home")}
+            onMouseLeave={() => handleOut()}
+            leftIcon={<Icon as={MdHome} boxSize={7} marginLeft={"3px"} />}
+            fontSize={"lg"}
+            display={{ base: "none", sm: "flex" }}
+          >
+            <Collapse
+              key={"Home"}
+              in={show === "Home" ? true : false}
+              hidden={show === "Home" ? false : true}
+            >
+              <Text fontSize={"sm"}>{"Home"}</Text>
+            </Collapse>
+          </Button>
+        </Link>
+      </motion.div>
       {navigationButton.map((el) => {
         return (
           <motion.div

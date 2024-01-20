@@ -91,11 +91,12 @@ function Projects() {
   };
   return (
     <Box
-      minHeight={"100vh"}
+      minHeight={"900px"}
       display={"flex"}
+      position={"relative"}
       alignItems={"center"}
       flexDirection={"column"}
-      justifyContent={"center"}
+      justifyContent={"start"}
       backgroundColor={"gray.100"}
       color={"#222831"}
       paddingBottom={"100px"}
@@ -104,7 +105,7 @@ function Projects() {
         display={"flex"}
         flexDirection={"column"}
         alignItems={"center"}
-        marginBottom={"100px"}
+        marginBottom={"50px"}
       >
         <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-up">
           Projects

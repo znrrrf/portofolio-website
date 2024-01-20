@@ -38,11 +38,12 @@ function AboutMe() {
 
   return (
     <Box
+      position={"relative"}
       display={"flex"}
       flexDirection={"column"}
       alignItems={"center"}
-      justifyContent={"center"}
-      minHeight={"400px"}
+      justifyContent={"start"}
+      minHeight={"100vh"}
       width={"100wh"}
       backgroundColor={"white"}
       color={"#222831"}
@@ -52,7 +53,7 @@ function AboutMe() {
         display={"flex"}
         flexDirection={"column"}
         alignItems={"center"}
-        marginBottom={"100px"}
+        marginBottom={"50px"}
       >
         <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-up">
           About

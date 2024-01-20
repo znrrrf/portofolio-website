@@ -9,6 +9,8 @@ function Footer() {
       minHeight={"40px"}
       display={"flex"}
       alignItems={"center"}
+      position={"sticky"}
+      bottom={"0px"}
     >
       <Box padding={"10px"}>
         <Text>&copy; 2023 All right reserved | zainurrouf4@gmail.com</Text>

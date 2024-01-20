@@ -19,11 +19,12 @@ function Home() {
       display={"flex"}
       flexDirection={"column"}
       alignItems={"center"}
-      justifyContent={"center"}
+      justifyContent={"start"}
       minHeight={"100vh"}
       width={"100wh"}
       backgroundColor={"gray.700"}
       color={"white"}
+      paddingTop={"250px"}
     >
       <Box
         display={"flex"}

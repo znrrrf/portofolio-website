@@ -8,59 +8,71 @@ import Projects from "./Projects";
 import { Element } from "react-scroll";
 import Contact from "./Contact";
 import ScrollMagic from "scrollmagic";
-import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
+// import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 function MainPage() {
   useEffect(() => {
     AOS.init();
     localStorage.setItem("active", JSON.stringify("Home"));
 
-    const controller = new ScrollMagic.Controller({
-      globalSceneOptions: {
-        triggerHook: "onLeave",
-        duration: "200%",
-      },
-    });
+    const controller = new ScrollMagic.Controller();
     var slides = document.querySelectorAll(".panel");
+    const nameElement = [".home"];
+
+    // new ScrollMagic.Scene({
+    //   triggerElement: ".panel2",
+    // })
+    //   .setClassToggle(".panel2", ".fade-in")
 
     console.log(slides);
-    for (let i = 0; i < slides.length; i++) {
+    for (let i = 0; i < nameElement.length; i++) {
       new ScrollMagic.Scene({
-        triggerElement: slides[i],
+        triggerElement: nameElement[i],
+        triggerHook: 0,
       })
-        .setPin(slides[i], { pushFollowers: false })
-        .addIndicators()
+        .setPin(nameElement[i])
         .addTo(controller);
+      // .setClassToggle("panel", "fade-in")
     }
+    // for (let i = 0; i < slides.length; i++) {
+    //   new ScrollMagic.Scene({
+    //     triggerElement: slides[i],
+    //     triggerHook: 0,
+
+    //     // duration: "100%",
+    //   })
+    //     .setClassToggle(slides[i], "fade-in")
+    //     .setPin(slides[i])
+    //     .addTo(controller);
+    // }
   }, []);
   return (
     <Box
-      minHeight={"100vh"}
+      height={"100%"}
       display={"flex"}
+      position={"relative"}
       justifyContent={"center"}
       backgroundColor={"white"}
       width={"100wh"}
+      zIndex={40}
     >
-      <Stack display={"Flex"} gap={0} width={"full"}>
-        <Element name="home">
-          <div className="panel">
-            <Home />
-          </div>
+      <Stack
+        display={"Flex"}
+        gap={0}
+        width={"full"}
+        position={"relative"}
+        Height={"100vh"}
+      >
+        <Element name="home" className="home panel">
+          <Home />
         </Element>
-
-        <Element name="about">
-          <div className="panel">
-            <AboutMe />
-          </div>
+        <Element name="about" className="about panel">
+          <AboutMe />
         </Element>
-        <Element name="projects">
-          <div className="panel">
-            <Projects />
-          </div>
+        <Element name="projects" className="projects panel">
+          <Projects />
         </Element>
-        <Element name="contact">
-          <div className="panel">
-            <Contact />
-          </div>
+        <Element name="contact" className="contact panel">
+          <Contact />
         </Element>
       </Stack>
     </Box>

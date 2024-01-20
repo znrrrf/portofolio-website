@@ -15,12 +15,12 @@ function Paging(props) {
   }, [props.main, props.contact]);
 
   return main ? (
-    <>
+    <div className=" ">
       {isSmallerThan ? null : <SideBar />}
       <NavBar />
       {main ? props.children : null}
-      <Footer />
-    </>
+      {/* <Footer /> */}
+    </div>
   ) : (
     <>
       <NavBar />

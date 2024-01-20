@@ -66,10 +66,11 @@ function Contact() {
   return (
     <Box
       display={"flex"}
+      position={"relative"}
       flexDirection={"column"}
       alignItems={"center"}
-      justifyContent={"center"}
-      minHeight={"400px"}
+      justifyContent={"start"}
+      Height={"100vh"}
       width={"100wh"}
       backgroundColor={"white"}
       color={"#222831"}
@@ -79,7 +80,7 @@ function Contact() {
         display={"flex"}
         flexDirection={"column"}
         alignItems={"center"}
-        marginBottom={"100px"}
+        marginBottom={"50px"}
       >
         <Heading marginBottom={"10px"} marginTop={"50px"} data-aos="fade-up">
           Contact
