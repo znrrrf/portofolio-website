@@ -7,10 +7,30 @@ import AboutMe from "./AboutMe";
 import Projects from "./Projects";
 import { Element } from "react-scroll";
 import Contact from "./Contact";
+import ScrollMagic from "scrollmagic";
+import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 function MainPage() {
   useEffect(() => {
     AOS.init();
     localStorage.setItem("active", JSON.stringify("Home"));
+
+    const controller = new ScrollMagic.Controller({
+      globalSceneOptions: {
+        triggerHook: "onLeave",
+        duration: "200%",
+      },
+    });
+    var slides = document.querySelectorAll(".panel");
+
+    console.log(slides);
+    for (let i = 0; i < slides.length; i++) {
+      new ScrollMagic.Scene({
+        triggerElement: slides[i],
+      })
+        .setPin(slides[i], { pushFollowers: false })
+        .addIndicators()
+        .addTo(controller);
+    }
   }, []);
   return (
     <Box
@@ -22,17 +42,25 @@ function MainPage() {
     >
       <Stack display={"Flex"} gap={0} width={"full"}>
         <Element name="home">
-          <Home />
+          <div className="panel">
+            <Home />
+          </div>
         </Element>
 
         <Element name="about">
-          <AboutMe />
+          <div className="panel">
+            <AboutMe />
+          </div>
         </Element>
         <Element name="projects">
-          <Projects />
+          <div className="panel">
+            <Projects />
+          </div>
         </Element>
         <Element name="contact">
-          <Contact />
+          <div className="panel">
+            <Contact />
+          </div>
         </Element>
       </Stack>
     </Box>
