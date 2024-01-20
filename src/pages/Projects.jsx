@@ -91,7 +91,7 @@ function Projects() {
   };
   return (
     <Box
-      minHeight={"900px"}
+      minHeight={"100vh"}
       display={"flex"}
       position={"relative"}
       alignItems={"center"}
