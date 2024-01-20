@@ -42,7 +42,15 @@
   background: white;
   border-radius: 30px;
 }
+.bg-color-white.active {
+  background-color: black;
+  color: white;
+}
 
+.bg-color-white {
+  background-color: white;
+  color: black;
+}
 /* .panel {
   position: static;
   z-index: 40;

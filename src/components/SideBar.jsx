@@ -123,10 +123,11 @@ function SideBar() {
             name={"Home"}
             justifyContent={"start"}
             variant={"ghost"}
-            backgroundColor={"white"}
+            // backgroundColor={"white"}
+            className="bg-color-white"
             color={"gray.800"}
             // onClick={() => buttonActive(el.name, el.navi)}
-
+            id="home"
             _hover={{
               width: "150px",
             }}
@@ -169,10 +170,12 @@ function SideBar() {
                 name={el.name}
                 justifyContent={"start"}
                 variant={"ghost"}
-                backgroundColor={"white"}
+                className="bg-color-white"
+                // backgroundColor={"white"}
+                // className=""
                 color={"gray.800"}
                 // onClick={() => buttonActive(el.name, el.navi)}
-
+                id={el.navi}
                 _hover={{
                   width: "150px",
                 }}

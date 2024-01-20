@@ -33,6 +33,18 @@ function MainPage() {
         .addTo(controller);
       // .setClassToggle("panel", "fade-in")
     }
+    new ScrollMagic.Scene({ triggerElement: "#sec1", duration: "100%" })
+      .setClassToggle("#home", "active")
+      .addTo(controller);
+    new ScrollMagic.Scene({ triggerElement: "#sec2", duration: "100%" })
+      .setClassToggle("#about", "active")
+      .addTo(controller);
+    new ScrollMagic.Scene({ triggerElement: "#sec3", duration: "100%" })
+      .setClassToggle("#projects", "active")
+      .addTo(controller);
+    new ScrollMagic.Scene({ triggerElement: "#sec4", duration: "100%" })
+      .setClassToggle("#contact", "active")
+      .addTo(controller);
     // for (let i = 0; i < slides.length; i++) {
     //   new ScrollMagic.Scene({
     //     triggerElement: slides[i],
@@ -62,16 +74,16 @@ function MainPage() {
         position={"relative"}
         Height={"100vh"}
       >
-        <Element name="home" className="home panel">
+        <Element name="home" className="home panel " id="sec1 ">
           <Home />
         </Element>
-        <Element name="about" className="about panel">
+        <Element name="about" className="about panel" id="sec2">
           <AboutMe />
         </Element>
-        <Element name="projects" className="projects panel">
+        <Element name="projects" className="projects panel" id="sec3">
           <Projects />
         </Element>
-        <Element name="contact" className="contact panel">
+        <Element name="contact" className="contact panel " id="sec4">
           <Contact />
         </Element>
       </Stack>
