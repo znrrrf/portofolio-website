@@ -43,13 +43,13 @@
   border-radius: 30px;
 }
 .bg-color-white.active {
-  background-color: black;
+  background-color: #1a202c;
   color: white;
 }
 
 .bg-color-white {
   background-color: white;
-  color: black;
+  color: #1a202c;
 }
 /* .panel {
   position: static;
