@@ -29,7 +29,7 @@ function Intro() {
       height={"100vh"}
       backgroundColor={"white"}
     >
-      <Text>
+      <Box>
         {currentComponent === 1 && (
           <Box data-aos="zoom-in">
             <Box
@@ -45,10 +45,10 @@ function Intro() {
         )}
         {currentComponent === 2 && (
           <Box data-aos="zoom-in">
-            <Text fontWeight={"bold"}>Lets get started</Text>
+            <Text fontWeight={"bold"}>Lets get started!</Text>
           </Box>
         )}
-      </Text>
+      </Box>
     </Box>
   );
 }

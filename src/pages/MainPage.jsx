@@ -17,10 +17,9 @@ function MainPage() {
     AOS.init({ once: true });
     localStorage.setItem("active", JSON.stringify("Home"));
 
-    const controller = new ScrollMagic.Controller();
     var slides = document.querySelectorAll(".panel");
     const nameElement = [".home"];
-
+    const controller = new ScrollMagic.Controller();
     new ScrollMagic.Scene({
       triggerElement: ".home",
       triggerHook: 0,
@@ -37,7 +36,6 @@ function MainPage() {
       width={"100wh"}
       zIndex={40}
       className=""
-      data-aos="fade-up"
     >
       <Stack
         display={"Flex"}
