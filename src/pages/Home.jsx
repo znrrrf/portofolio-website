@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useMediaQuery } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import Linking from "react-scroll/modules/components/Link";
 
 function Home() {
@@ -136,7 +136,7 @@ function Home() {
 
           <Box zIndex={15} display={"flex"} gap={5} marginTop={"30px"}>
             <Box>
-              <Linking to={"contact"} smooth={true} duration={500}>
+              <Link to={"contact"} smooth={true} duration={500}>
                 <Button
                   variant={"solid"}
                   backgroundColor={"white"}
@@ -153,7 +153,7 @@ function Home() {
                 >
                   My Contact
                 </Button>
-              </Linking>
+              </Link>
             </Box>
             <Box>
               <Button

@@ -24,11 +24,11 @@ import { Link } from "react-scroll";
 function SideBarMobile() {
   const navigation = useNavigate();
   const navigationButton = [
-    {
-      name: "Home",
-      icon: MdHome,
-      navi: "home",
-    },
+    // {
+    //   name: "Home",
+    //   icon: MdHome,
+    //   navi: "home",
+    // },
     { name: "About Me", icon: MdAccountBox, navi: "about" },
     {
       name: "Projects",
@@ -58,6 +58,18 @@ function SideBarMobile() {
         boxShadow={"md"}
       />
       <MenuList display={"flex"} flexDirection={"column"}>
+        <Box
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
+          <Button variant={"none"} leftIcon={<Icon as={MdHome} />}>
+            Home
+          </Button>
+        </Box>
         {navigationButton?.map((el, index) => {
           return (
             <Link to={el.navi} smooth={true} duration={500} key={index}>
