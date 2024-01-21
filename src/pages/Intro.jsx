@@ -39,13 +39,13 @@ function Intro() {
               alignItems={"center"}
               gap={"5px"}
             >
-              My name is <Box color={"blue.500"}>zainur rouf</Box>
+              Wellcome to my <Box color={"blue.500"}>Portofolio</Box>
             </Box>
           </Box>
         )}
         {currentComponent === 2 && (
           <Box data-aos="zoom-in">
-            <Text fontWeight={"bold"}>Full stack web developer</Text>
+            <Text fontWeight={"bold"}>Lets get started</Text>
           </Box>
         )}
       </Text>
