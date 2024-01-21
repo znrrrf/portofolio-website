@@ -24,7 +24,9 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
-
+import { gsap, Linier } from "gsap";
+import { ScrollMagicPlugin } from "scrollmagic";
+import ScrollMagic from "scrollmagic";
 function SideBar() {
   const [isSmallerThan] = useMediaQuery("(max-width: 767px)");
   const navigationButton = [
@@ -82,6 +84,38 @@ function SideBar() {
     if (localStorage.getItem("active")) {
       setActive(JSON.parse(localStorage.getItem("active")));
     }
+
+    const controller = new ScrollMagic.Controller();
+
+    new ScrollMagic.Scene({
+      triggerElement: "#sec1",
+      duration: "100%",
+      triggerHook: 0.5,
+    })
+      .setClassToggle("#home", "active")
+      .addTo(controller);
+
+    new ScrollMagic.Scene({
+      triggerElement: "#sec2",
+      duration: "100%",
+      triggerHook: 0.5,
+    })
+      .setClassToggle("#about", "active")
+      .addTo(controller);
+    new ScrollMagic.Scene({
+      triggerElement: "#sec3",
+      duration: "100%",
+      triggerHook: 0.5,
+    })
+      .setClassToggle("#projects", "active")
+      .addTo(controller);
+    new ScrollMagic.Scene({
+      triggerElement: "#sec4",
+      duration: "100%",
+      triggerHook: 0.5,
+    })
+      .setClassToggle("#contact", "active")
+      .addTo(controller);
   }, []);
 
   return (
@@ -106,7 +140,7 @@ function SideBar() {
           damping: 20,
         }}
       >
-        <Link
+        <Box
           onClick={() => {
             window.scrollTo({
               top: 0,
@@ -123,10 +157,8 @@ function SideBar() {
             name={"Home"}
             justifyContent={"start"}
             variant={"ghost"}
-            // backgroundColor={"white"}
             className="bg-color-white"
             color={"gray.800"}
-            // onClick={() => buttonActive(el.name, el.navi)}
             id="home"
             _hover={{
               width: "150px",
@@ -145,11 +177,12 @@ function SideBar() {
               <Text fontSize={"sm"}>{"Home"}</Text>
             </Collapse>
           </Button>
-        </Link>
+        </Box>
       </motion.div>
-      {navigationButton.map((el) => {
+      {navigationButton.map((el, index) => {
         return (
           <motion.div
+            key={index}
             whileHover={{ scale: [null, 1.2, 1.1] }}
             whileTap={{ scale: 0.9 }}
             initial={{ scale: 0 }}

@@ -3,9 +3,12 @@ import SideBar from "../components/SideBar";
 import NavBar from "../components/NavBar";
 import { useMediaQuery } from "@chakra-ui/react";
 import Footer from "../components/Footer";
+import Intro from "../pages/Intro";
+import AOS from "aos";
 
 function Paging(props) {
   const [isSmallerThan] = useMediaQuery("(max-width: 910px)");
+  const [showComponent2, setShowComponent2] = useState(false);
   const [main, setMain] = useState(false);
   const [contact, setContact] = useState(false);
 
@@ -13,8 +16,15 @@ function Paging(props) {
     setMain(props.main);
     setContact(props.contact);
   }, [props.main, props.contact]);
+  useEffect(() => {
+    AOS.init({ once: true });
+    const timeoutId = setTimeout(() => {
+      setShowComponent2(true);
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
-  return main ? (
+  return showComponent2 ? (
     <div className=" ">
       {isSmallerThan ? null : <SideBar />}
       <NavBar />
@@ -23,8 +33,8 @@ function Paging(props) {
     </div>
   ) : (
     <>
-      <NavBar />
-      {contact ? props.children : null}
+      <Intro />
+      {/* {contact ? props.children : null} */}
     </>
   );
 }

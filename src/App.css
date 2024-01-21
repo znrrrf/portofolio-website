@@ -51,6 +51,10 @@
   background-color: white;
   color: #1a202c;
 }
+
+.shadow {
+  box-shadow: 0px 0px 40px lightsteelblue;
+}
 /* .panel {
   position: static;
   z-index: 40;
@@ -61,6 +65,10 @@
   top: 0;
   z-index: 20;
 } */
+
+.text-shadow {
+  position: absolute;
+}
 
 .text-lg {
   font-size: larger;

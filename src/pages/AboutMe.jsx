@@ -44,10 +44,12 @@ function AboutMe() {
       alignItems={"center"}
       justifyContent={"start"}
       minHeight={"100vh"}
-      width={"100wh"}
+      width={"100%"}
+      maxWidth={"100wh"}
       backgroundColor={"white"}
       color={"#222831"}
       paddingBottom={"100px"}
+      className="shadow"
     >
       <Box
         display={"flex"}
@@ -123,7 +125,7 @@ function AboutMe() {
           display={"flex"}
           flexDirection={"column"}
         >
-          <Text fontWeight={"bold"}>Hallo,</Text>
+          {/* <Text fontWeight={"bold"}>Hallo,</Text> */}
           <Box>
             <Text>
               A web developer graduated from bootcamp of Purwadhika Digital

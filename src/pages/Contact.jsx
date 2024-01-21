@@ -70,7 +70,7 @@ function Contact() {
       flexDirection={"column"}
       alignItems={"center"}
       justifyContent={"start"}
-      Height={"100vh"}
+      height={"100vh"}
       width={"100wh"}
       backgroundColor={"white"}
       color={"#222831"}

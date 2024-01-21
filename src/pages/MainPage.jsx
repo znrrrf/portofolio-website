@@ -8,76 +8,48 @@ import Projects from "./Projects";
 import { Element } from "react-scroll";
 import Contact from "./Contact";
 import ScrollMagic from "scrollmagic";
+import { gsap, Linier } from "gsap";
+import { ScrollMagicPlugin } from "scrollmagic";
+// ScrollMagicPluginGsap(ScrollMagic, gsap);
 // import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 function MainPage() {
   useEffect(() => {
-    AOS.init();
+    AOS.init({ once: true });
     localStorage.setItem("active", JSON.stringify("Home"));
 
     const controller = new ScrollMagic.Controller();
     var slides = document.querySelectorAll(".panel");
     const nameElement = [".home"];
 
-    // new ScrollMagic.Scene({
-    //   triggerElement: ".panel2",
-    // })
-    //   .setClassToggle(".panel2", ".fade-in")
-
-    console.log(slides);
-    for (let i = 0; i < nameElement.length; i++) {
-      new ScrollMagic.Scene({
-        triggerElement: nameElement[i],
-        triggerHook: 0,
-      })
-        .setPin(nameElement[i])
-        .addTo(controller);
-      // .setClassToggle("panel", "fade-in")
-    }
-    new ScrollMagic.Scene({ triggerElement: "#sec1", duration: "100%" })
-      .setClassToggle("#home", "active")
+    new ScrollMagic.Scene({
+      triggerElement: ".home",
+      triggerHook: 0,
+    })
+      .setPin(".home")
       .addTo(controller);
-    new ScrollMagic.Scene({ triggerElement: "#sec2", duration: "100%" })
-      .setClassToggle("#about", "active")
-      .addTo(controller);
-    new ScrollMagic.Scene({ triggerElement: "#sec3", duration: "100%" })
-      .setClassToggle("#projects", "active")
-      .addTo(controller);
-    new ScrollMagic.Scene({ triggerElement: "#sec4", duration: "100%" })
-      .setClassToggle("#contact", "active")
-      .addTo(controller);
-    // for (let i = 0; i < slides.length; i++) {
-    //   new ScrollMagic.Scene({
-    //     triggerElement: slides[i],
-    //     triggerHook: 0,
-
-    //     // duration: "100%",
-    //   })
-    //     .setClassToggle(slides[i], "fade-in")
-    //     .setPin(slides[i])
-    //     .addTo(controller);
-    // }
   }, []);
   return (
     <Box
-      height={"100%"}
       display={"flex"}
       position={"relative"}
       justifyContent={"center"}
       backgroundColor={"white"}
       width={"100wh"}
       zIndex={40}
+      className=""
+      // data-aos="zoom-in"
     >
       <Stack
         display={"Flex"}
+        flexDirection={"column"}
         gap={0}
         width={"full"}
-        position={"relative"}
-        Height={"100vh"}
+        className="container"
       >
-        <Element name="home" className="home panel " id="sec1 ">
+        <Element name="home" className="home panel" id="sec1">
           <Home />
         </Element>
-        <Element name="about" className="about panel" id="sec2">
+        <Element name="about" className="about panel shadow" id="sec2">
           <AboutMe />
         </Element>
         <Element name="projects" className="projects panel" id="sec3">

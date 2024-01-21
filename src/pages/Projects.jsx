@@ -100,6 +100,8 @@ function Projects() {
       backgroundColor={"gray.100"}
       color={"#222831"}
       paddingBottom={"100px"}
+      width={"100wh"}
+      overflowX={"hidden"}
     >
       <Box
         display={"flex"}
@@ -126,6 +128,7 @@ function Projects() {
               display={"flex"}
               alignItems={"center"}
               key={index}
+              className="card-project"
             >
               <CardHeader>
                 <Text fontWeight={"bold"}>{el.name}</Text>
