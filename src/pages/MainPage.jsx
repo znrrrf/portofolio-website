@@ -37,7 +37,7 @@ function MainPage() {
       width={"100wh"}
       zIndex={40}
       className=""
-      // data-aos="zoom-in"
+      data-aos="fade-up"
     >
       <Stack
         display={"Flex"}
