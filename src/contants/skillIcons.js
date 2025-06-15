@@ -11,6 +11,10 @@ import sequelizeI from "../asset/skill-icon/sequelize-icon.png";
 import tailwindI from "../asset/skill-icon/tailwind-icon.png";
 import typescriptI from "../asset/skill-icon/typescript-icon.png";
 import nativeI from "../asset/skill-icon/react-native-icon.png";
+import nextI from "../asset/skill-icon/next-js-icon.png";
+import antdI from "../asset/skill-icon/antd-icon.png";
+import phpI from "../asset/skill-icon/php-icon.png";
+import firebaseI from "../asset/skill-icon/firebase-icon.png";
 
 const ICONS = {
   chakraI,
@@ -26,6 +30,10 @@ const ICONS = {
   tailwindI,
   typescriptI,
   nativeI,
+  nextI,
+  antdI,
+  phpI,
+  firebaseI
 };
 
 export default ICONS;
