@@ -328,15 +328,14 @@ function AboutMe() {
           <Text color="gray.300" fontSize="lg" mb={4}>
             Want to know more about my experience?
           </Text>
-          <Text color="white" fontSize="xl" fontWeight="bold">
-            Let's connect and discuss opportunities!
-          </Text>
           
-            <Link to={"contact"} smooth={true} duration={500}>
-              <Button>
-                Click here
-              </Button>
-          </Link>
+          <Link to={"contact"} smooth={true} duration={500}>
+            <Button variant={'outline'}>
+              <Text color="white" fontSize="xl" fontWeight="bold">
+                Let's connect and discuss opportunities!
+              </Text>
+            </Button>
+        </Link>
         </Box>
       </Container>
     </Box>
