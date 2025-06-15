@@ -155,7 +155,7 @@ function Hero() {
                   bg="gray.800"
                   color="blue.300"
                 >
-                  👋 AVAILABLE FOR WORK
+                  AVAILABLE FOR WORK
                 </Badge>
 
                 {/* Main Heading */}
@@ -237,7 +237,7 @@ function Hero() {
               borderColor="gray.700"
             >
               <Text
-                fontSize={isSmallerThan ? "md" : "lg"}
+                fontSize={isSmallerThan ? "sm" : "lg"}
                 color="gray.300"
                 lineHeight="1.7"
                 textAlign="center"
@@ -256,7 +256,7 @@ function Hero() {
             >
               <Link to="contact" smooth={true} duration={500}>
                 <Button
-                  size={isSmallerThan ? "lg" : "xl"}
+                  size={isSmallerThan ? "sm" : "xl"}
                   px={8}
                   py={6}
                   bg="blue.400"
@@ -286,7 +286,7 @@ function Hero() {
                 as="a"
                 href="https://drive.google.com/file/d/11s7IWdzowDEnvQQ2nVaE9-5VIJsv-ftB/view?usp=sharing"
                 target="_blank"
-                size={isSmallerThan ? "lg" : "xl"}
+                size={isSmallerThan ? "sm" : "xl"}
                 px={8}
                 py={6}
                 bg="transparent"
@@ -337,7 +337,7 @@ function Hero() {
                   LOCATION
                 </Text>
                 <Text fontSize="sm" color="gray.300">
-                  Jakarta, ID
+                  Tangerang, ID
                 </Text>
               </Box>
 
@@ -355,10 +355,10 @@ function Hero() {
                 }}
               >
                 <Text fontSize="sm" color="blue.400" fontWeight="bold" mb={1}>
-                  EXPERIENCE
+                  {isSmallerThan ? "EXPERIENCE" : "JOB EXPERIENCE"} 
                 </Text>
                 <Text fontSize="sm" color="gray.300">
-                  2+ Years
+                  1+ Years
                 </Text>
               </Box>
 

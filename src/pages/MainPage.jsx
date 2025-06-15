@@ -19,13 +19,13 @@ function MainPage() {
 
     var slides = document.querySelectorAll(".panel");
     const nameElement = [".home"];
-    const controller = new ScrollMagic.Controller();
-    new ScrollMagic.Scene({
-      triggerElement: ".home",
-      triggerHook: 0,
-    })
-      .setPin(".home")
-      .addTo(controller);
+    // const controller = new ScrollMagic.Controller();
+    // new ScrollMagic.Scene({
+    //   triggerElement: ".home",
+    //   triggerHook: 0,
+    // })
+    //   .setPin(".home")
+    //   .addTo(controller);
   }, []);
   return (
     <Box
