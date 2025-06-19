@@ -332,7 +332,7 @@ function AboutMe() {
           <Link to={"contact"} smooth={true} duration={500}>
             <Button variant={'outline'}>
               <Text color="white" fontSize="xl" fontWeight="bold">
-                Let's connect and discuss opportunities!
+                Let's connect!
               </Text>
             </Button>
         </Link>
