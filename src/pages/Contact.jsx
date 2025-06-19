@@ -94,8 +94,8 @@ function Contact() {
   ];
 
   const socialLinks = [
-    { icon: FaLinkedin, href: "#", color: "blue.500" },
-    { icon: FaGithub, href: "#", color: "gray.400" }
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/zainur-rouf-2822a4263", color: "blue.500" },
+    { icon: FaGithub, href: "https://github.com/znrrrf", color: "gray.400" }
   ];
 
   return (
